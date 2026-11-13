@@ -168,9 +168,9 @@ python app/app.py
 ## 📊 Dataset
 
 ### Source
-- **Name**: Indian Road Accident Dataset (2017–2022)
+- **Name**: Indian Road Accident Dataset (2019–2024)
 - **Source**: Ministry of Road Transport & Highways
-- **Time Period**: 2017 to 2022
+- **Time Period**: 2019 to 2024
 - **Coverage**: Multiple states and union territories across India
 
 ### Features
@@ -311,11 +311,9 @@ Navigate to `http://localhost:8501` in browser.
 1. **Data Collection** → Download dataset from Ministry of Road Transport & Highways
 2. **Data Exploration** → Analyze patterns and distributions
 3. **Data Preprocessing** → Clean, encode, and transform data
-4. **Feature Engineering** → Create new informative features
-5. **Model Training** → Train multiple ML models
-6. **Model Evaluation** → Compare and select best model
-7. **Model Deployment** → Deploy via Streamlit web app
-8. **Prediction** → Make predictions on new data
+4. **Model Training** → Train multiple ML models
+5. **Model Evaluation** → Compare and select best model
+6. **Prediction** → Make predictions on new data
 
 ---
 
