@@ -63,7 +63,8 @@ Accident-IQ/
 │
 ├── README.md                          # Project documentation (this file)
 ├── requirements.txt                   # Python dependencies
-│
+├── verify_setup.py                    # Verify the setup
+|
 ├── dataset/                           # Dataset directory
 │   ├── road_accidents_india_2017_2022.csv  # Raw dataset (place here)
 │   ├── processed_data.csv            # Preprocessed dataset (generated)
@@ -313,9 +314,8 @@ Navigate to `http://localhost:8501` in browser.
 4. **Feature Engineering** → Create new informative features
 5. **Model Training** → Train multiple ML models
 6. **Model Evaluation** → Compare and select best model
-7. **Hyperparameter Tuning** → Optimize model performance
-8. **Model Deployment** → Deploy via Streamlit web app
-9. **Prediction** → Make predictions on new data
+7. **Model Deployment** → Deploy via Streamlit web app
+8. **Prediction** → Make predictions on new data
 
 ---
 
