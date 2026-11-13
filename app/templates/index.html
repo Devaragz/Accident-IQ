@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accident-IQ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-icon">
+                <i class="fas fa-car-crash"></i>
+            </div>
+            <h1 class="header-title">🚗 Accident-IQ</h1>
+            <p class="header-subtitle">By Group-7</p>
+            <div class="header-badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>Road Safety Intelligence – India (2017-2022)</span>
+            </div>
+        </div>
+        <div class="header-waves">
+            <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#ffffff" fill-opacity="0.3"
+                    d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z">
+                </path>
+            </svg>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="welcome-card">
+            <div class="welcome-icon">
+                <i class="fas fa-brain"></i>
+            </div>
+            <h2>Welcome to Accident-IQ</h2>
+            <p>This intelligent system uses machine learning to predict the severity of road accidents
+                based on environmental and situational factors. Enter the accident details below to get
+                a prediction.</p>
+        </div>
+
+        <div class="form-container">
+            <h2 class="section-title">
+                <i class="fas fa-edit"></i>
+                Enter Accident Details
+            </h2>
+            <form class="prediction-form" method="POST" action="/predict">
+                <div class="form-group">
+                    <label for="weather">Weather Condition</label>
+                    <select id="weather" name="weather" required>
+                        <option value="">-- Select Weather --</option>
+                        <option value="Clear">Clear</option>
+                        <option value="Rainy">Rainy</option>
+                        <option value="Foggy">Foggy</option>
+                        <option value="Snowy">Snowy</option>
+                        <option value="Cloudy">Cloudy</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="light">Light Condition</label>
+                    <select id="light" name="light" required>
+                        <option value="">-- Select Light Condition --</option>
+                        <option value="Daylight">Daylight</option>
+                        <option value="Night">Night</option>
+                        <option value="Dawn/Dusk">Dawn/Dusk</option>
+                        <option value="Street Lights">Street Lights</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="road_surface">Road Surface Condition</label>
+                    <select id="road_surface" name="road_surface" required>
+                        <option value="">-- Select Road Surface --</option>
+                        <option value="Dry">Dry</option>
+                        <option value="Wet">Wet</option>
+                        <option value="Slippery">Slippery</option>
+                        <option value="Icy">Icy</option>
+                        <option value="Muddy">Muddy</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="road_type">Road Type</label>
+                    <select id="road_type" name="road_type" required>
+                        <option value="">-- Select Road Type --</option>
+                        <option value="Highway">Highway</option>
+                        <option value="Urban Road">Urban Road</option>
+                        <option value="Rural Road">Rural Road</option>
+                        <option value="State Highway">State Highway</option>
+                        <option value="National Highway">National Highway</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicles">Number of Vehicles Involved</label>
+                    <input type="number" id="vehicles" name="vehicles" min="1" max="10" value="2" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="killed">Persons Killed</label>
+                    <input type="number" id="killed" name="killed" min="0" max="20" value="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="injured">Persons Injured</label>
+                    <input type="number" id="injured" name="injured" min="0" max="50" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="year">Year</label>
+                    <select id="year" name="year" required>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022" selected>2022</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <button type="submit" class="btn">
+                        <i class="fas fa-search"></i>
+                        Predict Severity
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        {% if prediction %}
+        <div class="prediction-result result-{{ prediction.lower() }}">
+            <h2>Prediction Result</h2>
+            <div class="severity-indicator">
+                <p class="severity-label"><strong>Predicted Severity:</strong></p>
+                <div class="severity-display">
+                    <h1 class="severity-value">{{ prediction }}</h1>
+                    {% if prediction == "Minor" %}
+                    <p class="severity-description">✅ Low Risk - Minor injuries expected</p>
+                    {% elif prediction == "Serious" %}
+                    <p class="severity-description">⚠️ Moderate Risk - Significant injuries expected</p>
+                    {% else %}
+                    <p class="severity-description">🚨 High Risk - Fatalities expected</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Severity Scale Visual -->
+            <div class="severity-scale">
+                <div class="scale-label">Severity Scale:</div>
+                <div class="scale-bar">
+                    <div class="scale-item {% if prediction == 'Minor' %}active{% endif %}">
+                        <div class="scale-color minor-color"></div>
+                        <span>Minor</span>
+                    </div>
+                    <div class="scale-item {% if prediction == 'Serious' %}active{% endif %}">
+                        <div class="scale-color serious-color"></div>
+                        <span>Serious</span>
+                    </div>
+                    <div class="scale-item {% if prediction == 'Fatal' %}active{% endif %}">
+                        <div class="scale-color fatal-color"></div>
+                        <span>Fatal</span>
+                    </div>
+                </div>
+            </div>
+
+            {% if prediction == "Minor" %}
+            <div class="info-box mt-2">
+                <h3>⚠️ Safety Recommendations - Low Risk</h3>
+                <ul style="text-align: left;">
+                    <li>Continue standard safety protocols</li>
+                    <li>Maintain road infrastructure</li>
+                    <li>Educate drivers on safe practices</li>
+                </ul>
+            </div>
+            {% elif prediction == "Serious" %}
+            <div class="warning-box mt-2">
+                <h3>⚠️ Safety Recommendations - Moderate Risk</h3>
+                <ul style="text-align: left;">
+                    <li>Enhance safety awareness</li>
+                    <li>Ensure proper road signage</li>
+                    <li>Monitor traffic conditions closely</li>
+                    <li>Prepare emergency response</li>
+                </ul>
+            </div>
+            {% else %}
+            <div class="error-box mt-2">
+                <h3>⚠️ Safety Recommendations - High Risk</h3>
+                <ul style="text-align: left;">
+                    <li>Ensure immediate emergency response readiness</li>
+                    <li>Implement strict safety measures</li>
+                    <li>Consider additional safety infrastructure</li>
+                    <li>Alert nearby emergency services</li>
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <h2 class="section-title">
+            <i class="fas fa-chart-bar"></i>
+            Key Statistics
+        </h2>
+        <div class="statistics mt-2">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>4</h3>
+                <p>ML Models Trained</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>2017-2022</h3>
+                <p>Dataset Period</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>India</h3>
+                <p>Coverage Area</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <h3>3</h3>
+                <p>Severity Levels</p>
+            </div>
+        </div>
+
+        <div class="about-card mt-2">
+            <div class="about-header">
+                <i class="fas fa-info-circle"></i>
+                <h3>About the Project</h3>
+            </div>
+            <p>This project uses machine learning to analyze and predict road accident severity based on
+                historical data from India (2017-2022). The models were trained on various features including
+                weather conditions, road type, light conditions, and accident details.</p>
+            <div class="models-used">
+                <strong><i class="fas fa-cogs"></i> Models Used:</strong>
+                <div class="model-badges">
+                    <span class="badge">Logistic Regression</span>
+                    <span class="badge">Decision Tree</span>
+                    <span class="badge">Random Forest</span>
+                    <span class="badge">XGBoost</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <i class="fas fa-code"></i>
+                <p>ML-Lab Mini project</p>
+            </div>
+            <div class="footer-section">
+                <i class="fas fa-graduation-cap"></i>
+                <p>Educational & Research Purpose Only</p>
+            </div>
+            <div class="footer-section">
+                <i class="fas fa-user-circle"></i>
+                <p>Developed by Group-7</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
