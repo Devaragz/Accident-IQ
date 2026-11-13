@@ -1,12 +1,12 @@
 # Accident - IQ
 
-## Road Safety Intelligence – India (2017-2022)
+## Road Safety Intelligence – India (2019-2024)
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3.0-orange.svg)](https://scikit-learn.org/)
 [![XGBoost](https://img.shields.io/badge/XGBoost-1.7.6-red.svg)](https://xgboost.readthedocs.io/)
 
-A comprehensive machine learning project that predicts the severity level of road accidents (Minor / Serious / Fatal) based on various environmental and situational factors using the Indian Road Accident Dataset (2017–2022).
+A comprehensive machine learning project that predicts the severity level of road accidents (Minor / Serious / Fatal) based on various environmental and situational factors using the Indian Road Accident Dataset (2019–2024).
 
 ---
 
@@ -33,7 +33,7 @@ Road accidents are a major public health concern in India, causing thousands of 
 - **Provide actionable insights** for road safety improvements
 - **Enable proactive safety measures** based on predictions
 
-The project analyzes 6 years of accident data (2017-2022) from across India, incorporating features such as weather conditions, road type, lighting, and casualty information.
+The project analyzes 6 years of accident data (2019-2024) from across India, incorporating features such as weather conditions, road type, lighting, and casualty information.
 
 ---
 
@@ -170,14 +170,14 @@ python app/app.py
 ### Source
 - **Name**: Indian Road Accident Dataset (2017–2022)
 - **Source**: Ministry of Road Transport & Highways
-- **Time Period**: 2017 to 2022
+- **Time Period**: 2019 to 202
 - **Coverage**: Multiple states and union territories across India
 
 ### Features
 
 | Feature | Description | Type |
 |---------|-------------|------|
-| Year | Year of accident (2017-2022) | Numerical |
+| Year | Year of accident (2019-2024) | Numerical |
 | State/UT | State or Union Territory | Categorical |
 | Road_Type | Highway, Urban, Rural | Categorical |
 | Weather_Condition | Clear, Rainy, Foggy, etc. | Categorical |
