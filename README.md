@@ -170,7 +170,7 @@ python app/app.py
 ### Source
 - **Name**: Indian Road Accident Dataset (2017–2022)
 - **Source**: Ministry of Road Transport & Highways
-- **Time Period**: 2019 to 202
+- **Time Period**: 2017 to 2022
 - **Coverage**: Multiple states and union territories across India
 
 ### Features
