@@ -15,16 +15,12 @@ A comprehensive machine learning project that predicts the severity level of roa
 - [Overview](#overview)
 - [Features](#features)
 - [Project Structure](#project-structure)
-- [Installation](#installation)
 - [Usage](#usage)
 - [Dataset](#dataset)
 - [Models](#models)
 - [Results](#results)
 - [Web Application](#web-application)
 - [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
 ---
 
@@ -52,24 +48,18 @@ The project analyzes 6 years of accident data (2017-2022) from across India, inc
 - ✅ Feature importance analysis
 
 ### Web Application
-- ✅ Interactive Streamlit web app for predictions
+- ✅ Interactive Flask web app for predictions
 - ✅ User-friendly interface for inputting accident details
 - ✅ Real-time severity predictions
 - ✅ Safety recommendations based on predicted severity
 - ✅ Visualization of model performance and insights
-
-### Documentation
-- ✅ 5 detailed Jupyter notebooks for analysis
-- ✅ Comprehensive code documentation
-- ✅ Dataset description and metadata
-- ✅ Setup and usage instructions
 
 ---
 
 ## 📁 Project Structure
 
 ```
-Road_Accident_Severity_Prediction/
+Accident-IQ/
 │
 ├── README.md                          # Project documentation (this file)
 ├── requirements.txt                   # Python dependencies
@@ -78,13 +68,6 @@ Road_Accident_Severity_Prediction/
 │   ├── road_accidents_india_2017_2022.csv  # Raw dataset (place here)
 │   ├── processed_data.csv            # Preprocessed dataset (generated)
 │   └── data_description.txt          # Dataset documentation
-│
-├── notebooks/                         # Jupyter notebooks
-│   ├── 01_data_exploration.ipynb     # Initial data exploration
-│   ├── 02_data_preprocessing.ipynb   # Data cleaning and preprocessing
-│   ├── 03_model_training.ipynb       # Model training and comparison
-│   ├── 04_model_evaluation.ipynb     # Detailed model evaluation
-│   └── 05_visualization_and_insights.ipynb  # EDA and visualizations
 │
 ├── src/                               # Source code modules
 │   ├── data_preprocessing.py         # Data preprocessing functions
@@ -112,54 +95,10 @@ Road_Accident_Severity_Prediction/
 
 ---
 
-## 🚀 Installation
-
-### Prerequisites
-
-- Python 3.8 or higher
-- pip package manager
-- Git (optional, for cloning)
-
-### Step-by-Step Installation
-
-1. **Clone the repository** (or download ZIP)
-   ```bash
-   git clone https://github.com/yourusername/road-accident-severity-prediction.git
-   cd road-accident-severity-prediction
-   ```
-
-2. **Create a virtual environment** (recommended)
-   ```bash
-   python -m venv venv
-   
-   # On Windows
-   venv\Scripts\activate
-   
-   # On macOS/Linux
-   source venv/bin/activate
-   ```
-
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Download the dataset**
-   - Download the Indian Road Accident Dataset from [Kaggle](https://www.kaggle.com/)
-   - Place the CSV file (`Road.csv` or similar) in the `dataset/` directory
-   - Rename it to `road_accidents_india_2017_2022.csv`
-
----
 
 ## 💻 Usage
 
 ### 1. Data Exploration and Preprocessing
-
-#### Using Jupyter Notebooks:
-```bash
-jupyter notebook
-```
-Then navigate to `notebooks/` and run the notebooks in order (01, 02, 03, 04, 05).
 
 #### Using Python Scripts:
 ```bash
@@ -174,9 +113,6 @@ python src/data_preprocessing.py
 
 ### 2. Model Training
 
-#### Using Jupyter Notebook:
-Open and run `notebooks/03_model_training.ipynb`
-
 #### Using Python Script:
 ```bash
 python src/model_training.py
@@ -189,9 +125,6 @@ python src/model_training.py
 ```
 
 ### 3. Model Evaluation
-
-#### Using Jupyter Notebook:
-Open and run `notebooks/04_model_evaluation.ipynb`
 
 #### Using Python Script:
 ```bash
@@ -222,11 +155,11 @@ predict_from_file('input.csv', 'output.csv')
 
 ### 5. Running the Web Application
 
-#### Streamlit App (Recommended):
+#### Flask App :
 ```bash
-streamlit run app/app.py
+python app/app.py
 
-# The app will open in your browser at http://localhost:8501
+# The app will open in browser at http://localhost:8501
 ```
 
 ---
@@ -235,7 +168,7 @@ streamlit run app/app.py
 
 ### Source
 - **Name**: Indian Road Accident Dataset (2017–2022)
-- **Source**: Kaggle
+- **Source**: Ministry of Road Transport & Highways
 - **Time Period**: 2017 to 2022
 - **Coverage**: Multiple states and union territories across India
 
@@ -324,7 +257,7 @@ All visualizations are saved in the `results/` directory:
 
 ## 🌐 Web Application
 
-### Streamlit App Features
+### Flask App Features
 
 1. **Interactive Prediction Interface**
    - Input fields for all accident parameters
@@ -343,16 +276,10 @@ All visualizations are saved in the `results/` directory:
 ### Running the App
 
 ```bash
-streamlit run app/app.py
+python app/app.py
 ```
 
-Navigate to `http://localhost:8501` in your browser.
-
-### App Screenshots
-
-*Add screenshots of your Streamlit app here*
-
----
+Navigate to `http://localhost:8501` in browser.
 
 ## 🛠️ Technologies Used
 
@@ -371,17 +298,16 @@ Navigate to `http://localhost:8501` in your browser.
 - **plotly** - Interactive visualizations
 
 ### Web Framework
-- **streamlit** - Web application framework
+- **Flask** - Web application framework
 
 ### Development Tools
-- **Jupyter Notebook** - Interactive development
 - **joblib** - Model persistence
 
 ---
 
 ## 🔄 Workflow
 
-1. **Data Collection** → Download dataset from Kaggle
+1. **Data Collection** → Download dataset from Ministry of Road Transport & Highways
 2. **Data Exploration** → Analyze patterns and distributions
 3. **Data Preprocessing** → Clean, encode, and transform data
 4. **Feature Engineering** → Create new informative features
@@ -403,77 +329,13 @@ Based on the analysis of the dataset:
 4. **Casualty Correlation**: Number of persons killed is a strong predictor of severity
 5. **Temporal Patterns**: Certain times of year show higher accident rates
 
-*Detailed insights are available in the notebooks*
-
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Areas for Contribution
-- Improving model performance
-- Adding new features
-- Enhancing visualizations
-- Expanding the web application
-- Writing tests
-- Improving documentation
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## ⚠️ Disclaimer
-
-This project is for **educational and research purposes only**. 
-
-- Predictions should not be used as the sole basis for critical safety decisions
-- Real-world accident severity depends on many complex factors
-- Always follow official traffic safety guidelines and regulations
-- Model accuracy depends on data quality and may vary
-
----
-
-## 📧 Contact
-
-**Project Maintainer**: [Your Name]
-- Email: your.email@example.com
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- GitHub: [@yourusername](https://github.com/yourusername)
-
----
 
 ## 🙏 Acknowledgments
 
-- **Dataset**: Kaggle - Indian Road Accident Dataset
 - **Data Source**: Ministry of Road Transport and Highways, Government of India
 - **Inspiration**: Road safety improvement initiatives
-- **Libraries**: Thanks to all open-source contributors
-
----
-
-## 🗺️ Roadmap
-
-Future enhancements planned:
-
-- [ ] Add geospatial analysis with maps
-- [ ] Implement deep learning models (Neural Networks)
-- [ ] Create mobile application
-- [ ] Add real-time data integration
-- [ ] Expand to other countries' data
-- [ ] Implement explainable AI (SHAP, LIME)
-- [ ] Add API endpoints for integration
-- [ ] Create automated retraining pipeline
 
 ---
 
@@ -482,20 +344,10 @@ Future enhancements planned:
 1. Road Safety Data - Ministry of Road Transport and Highways, India
 2. Scikit-learn Documentation: https://scikit-learn.org/
 3. XGBoost Documentation: https://xgboost.readthedocs.io/
-4. Streamlit Documentation: https://docs.streamlit.io/
 
 ---
 
-## 🌟 Star History
-
-If you find this project useful, please consider giving it a ⭐!
-
----
 
 <div align="center">
-
-**Made with ❤️ for Road Safety**
-
-*"Predict. Prevent. Protect."*
 
 </div>
