@@ -1,11 +1,10 @@
-# 🚗 Road Accident Severity Prediction
+# Accident - IQ
 
 ## Road Safety Intelligence – India (2017-2022)
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3.0-orange.svg)](https://scikit-learn.org/)
 [![XGBoost](https://img.shields.io/badge/XGBoost-1.7.6-red.svg)](https://xgboost.readthedocs.io/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.25.0-FF4B4B.svg)](https://streamlit.io/)
 
 A comprehensive machine learning project that predicts the severity level of road accidents (Minor / Serious / Fatal) based on various environmental and situational factors using the Indian Road Accident Dataset (2017–2022).
 
